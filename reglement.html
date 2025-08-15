@@ -12,23 +12,9 @@
     src: local('Inter'), local('Inter var');
   }
   .glass { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(10px); }
-  .shine { position: relative; overflow: hidden; }
-  .shine:before {
-    content:''; position:absolute; top:-100%; left:-50%; width:200%; height:200%;
-    background: radial-gradient(ellipse at top left, rgba(255,255,255,0.25), transparent 50%);
-    transform: rotate(15deg);
-  }
-  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.35);}
-  .neon { box-shadow: 0 0 0 rgba(0,0,0,0); }
-  .neon:hover { box-shadow: 0 0 24px rgba(245,158,11,0.55); }
   .grad { background: radial-gradient(1200px 700px at -10% -10%, rgba(245,158,11,0.18), transparent 50%), 
                      radial-gradient(1000px 600px at 110% 10%, rgba(56,189,248,0.15), transparent 50%),
                      radial-gradient(900px 600px at 50% 120%, rgba(99,102,241,0.15), transparent 50%), #0b0f19; }
-  .link-underline { position: relative; }
-  .link-underline:after {
-    content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background: currentColor; transition: width .25s ease;
-  }
-  .link-underline:hover:after { width:100%; }
 </style>
 <script>
   function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
@@ -36,6 +22,7 @@
 
 <body class="grad text-white">
 
+<!-- HEADER -->
 <header class="sticky top-0 z-40">
   <div class="glass mx-auto max-w-7xl mt-4 rounded-2xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-3">
@@ -43,13 +30,13 @@
       <span class="text-white/90 font-semibold text-lg">Shindo Life RP</span>
     </a>
     <nav class="hidden md:flex items-center gap-6">
-      <a class="text-white/80 hover:text-white link-underline " href="index.html">Accueil</a>
-      <a class="text-white/80 hover:text-white link-underline text-amber-300" href="reglement.html">Règlement</a>
-      <a class="text-white/80 hover:text-white link-underline " href="tcg.html">TCG</a>
-      <a class="text-white/80 hover:text-white link-underline " href="evenements.html">Événements</a>
-      <a class="text-white/80 hover:text-white link-underline " href="contact.html">Contact</a>
+      <a class="text-white/80 hover:text-white" href="index.html">Accueil</a>
+      <a class="text-amber-300 font-semibold" href="reglement.html">Règlement</a>
+      <a class="text-white/80 hover:text-white" href="tcg.html">TCG</a>
+      <a class="text-white/80 hover:text-white" href="evenements.html">Événements</a>
+      <a class="text-white/80 hover:text-white" href="contact.html">Contact</a>
     </nav>
-    <a href="https://discord.gg/DAEDB3cxZJ" class="hidden md:inline-block bg-amber-400 text-zinc-900 font-semibold px-4 py-2 rounded-xl neon">Rejoindre</a>
+    <a href="https://discord.gg/DAEDB3cxZJ" class="hidden md:inline-block bg-amber-400 text-zinc-900 font-semibold px-4 py-2 rounded-xl">Rejoindre</a>
     <button class="md:hidden text-white" onclick="toggleMenu()">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
@@ -68,90 +55,87 @@
   </div>
 </header>
 
+<!-- MAIN -->
 <main class="px-4 sm:px-6 lg:px-8">
   <section class="max-w-7xl mx-auto pt-10 pb-16">
-    <div class="glass rounded-3xl p-6 sm:p-10">
-      <h1 class="text-3xl sm:text-4xl font-extrabold mb-4">Règlement RP</h1>
-      <div class="prose prose-invert max-w-none">
+    <h1 class="text-4xl font-extrabold mb-8 text-center">📜 Règlement RP</h1>
+    
+    <div class="grid gap-6">
 
-<h2>🎭 Comment se comporter en RP</h2>
-<p>Adoptez un comportement <strong>cohérent avec votre personnage</strong> dans vos paroles et vos actions.</p>
-<ul>
-  <li>En combat, réagissez comme dans la vraie vie, ne négligez pas les blessures ou dangers.</li>
-  <li>En infériorité numérique, obéissez un minimum pour respecter la logique RP.</li>
-</ul>
-
-<h2>🧍‍♂️ Personnage RP</h2>
-<p>Pour obtenir un personnage RP, <strong>faites un ticket</strong> avec une fiche et des lignées de sang cohérentes. Votre fiche doit être envoyée dans <em>#fiche-rp</em> avec justification. Les grades se gagnent progressivement après évaluation.</p>
-
-<h2>🎓 Rangs et droits</h2>
-<ul>
-  <li><strong>🌀 Aspirant Ninja</strong> — Pas de missions, ne peut pas sortir sans autorisation, peut apprendre une technique avec un professeur.</li>
-  <li><strong>🍃 Genin</strong> — Peut porter le bandeau, missions C et D, doit être en squad.</li>
-  <li><strong>🌪️ Chûnin</strong> — Gilet autorisé, missions B et C, peut diriger une équipe.</li>
-  <li><strong>🔥 Jûnin</strong> — Peut enseigner, missions A et S, ordres directs du Hokage.</li>
-  <li><strong>🦊 ANBU</strong> — Escouade secrète, missions du Kage, tenue et masque recommandés, technique obligatoire.</li>
-  <li><strong>👑 Hokage</strong> — Contrôle total du village, gère missions et promotions, peut nommer 2 conseillers.</li>
-</ul>
-
-<h2>📝 Missions</h2>
-<p>Un rapport doit être envoyé après chaque mission par le maître. Après 3 rappels pour perturbation, exclusion possible par le Hokage.</p>
-
-<h2>☠️ Criminels / Nukenin</h2>
-<ul>
-  <li>Infiltration/attaque avec justification RP.</li>
-  <li>Pas de meurtres sans accord ou contexte.</li>
-  <li>Combat tour par tour, pas de powerplay/metagaming/godmodding.</li>
-  <li>Un seul personnage par compte sauf accord.</li>
-  <li>Mort RP seulement si accord ou décision MJ.</li>
-  <li>Désertion avec accord du Kage.</li>
-</ul>
-
-<h2>🌟 Techniques & événements</h2>
-<p>Techniques puissantes, modes spéciaux et événements doivent être validés par le staff. Pas plus d'une technique par session sauf accord.</p>
-
-<h2>📚 Apprentissage & progression</h2>
-<ul>
-  <li>Aspirant ➜ Genin : clonage + technique élémentaire.</li>
-  <li>Genin ➜ Chûnin : 3 techniques élémentaires + 1 Kekkei Genkai.</li>
-  <li>Chûnin ➜ Jûnin : toutes les techniques élémentaires + 2 Kekkei Genkai.</li>
-  <li>ANBU : validation Hokage.</li>
-  <li>Kage : élection par l'ancien Kage.</li>
-</ul>
-
-<h2>🏛️ Conseil des Kage</h2>
-<p>Le Kage nomme 2 conseillers politiques. Conseil des 5 Kage possible si tous sont d’accord.</p>
-
-<h2>⚠️ Rappel sur les guerres</h2>
-<ul>
-  <li>Invasions/attaques validées avant le RP.</li>
-  <li>Actions cohérentes avec l’histoire.</li>
-  <li>Respect des grades et règles de progression.</li>
-  <li>Attaques internes justifiées et validées.</li>
-  <li>Pas d’abus sur l’apprentissage de techniques.</li>
-  <li>Personnages RP crédibles obligatoires.</li>
-</ul>
-
-<h2>📖 Termes RP à connaître</h2>
-<ul>
-  <li>RP : Roleplay</li>
-  <li>HRP : Hors RP</li>
-  <li>Powerplay : actions abusives</li>
-  <li>Metagaming : infos HRP utilisées</li>
-  <li>Godmodding : invincibilité/contrôle abusif</li>
-  <li>MJ : Maître de jeu</li>
-  <li>Squad : équipe RP</li>
-  <li>Kekkei Genkai : technique héréditaire</li>
-  <li>Techniques élémentaires : feu, eau, etc.</li>
-</ul>
-
-<p class="mt-6">Le staff se réserve le droit d’ajuster ces règles. Dernière mise à jour : 15 août 2025.</p>
-
+      <!-- Section -->
+      <div class="glass rounded-2xl p-6 border-l-4 border-amber-400">
+        <h2 class="text-2xl font-bold mb-3">🎭 Comment se comporter en RP</h2>
+        <p>Adoptez un comportement <strong>cohérent avec votre personnage</strong> dans vos paroles et vos actions.</p>
+        <ul class="list-disc pl-6 mt-3 space-y-1">
+          <li>Réagissez comme dans la vraie vie face aux dangers.</li>
+          <li>Si vous êtes seul contre plusieurs, jouez la logique RP.</li>
+        </ul>
       </div>
+
+      <div class="glass rounded-2xl p-6 border-l-4 border-blue-400">
+        <h2 class="text-2xl font-bold mb-3">🧍‍♂️ Personnage RP</h2>
+        <p>Pour obtenir un personnage RP, <strong>faites un ticket</strong> avec fiche et lignées cohérentes. Grades progressifs après évaluation.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-6 border-l-4 border-green-400">
+        <h2 class="text-2xl font-bold mb-3">🎓 Rangs et droits</h2>
+        <ul class="space-y-2">
+          <li><strong>🌀 Aspirant Ninja :</strong> Pas de missions, sortie avec autorisation, peut apprendre une technique avec professeur.</li>
+          <li><strong>🍃 Genin :</strong> Missions C/D, toujours en squad.</li>
+          <li><strong>🌪️ Chûnin :</strong> Missions B/C, peut diriger une équipe.</li>
+          <li><strong>🔥 Jûnin :</strong> Missions A/S, enseigne et dirige.</li>
+          <li><strong>🦊 ANBU :</strong> Escouade spéciale, tenue + masque, missions du Kage.</li>
+          <li><strong>👑 Hokage :</strong> Contrôle total du village, nomme 2 conseillers.</li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-2xl p-6 border-l-4 border-pink-400">
+        <h2 class="text-2xl font-bold mb-3">☠️ Criminels / Nukenin</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Attaque/infiltration avec justification RP.</li>
+          <li>Pas de meurtres sans accord.</li>
+          <li>Pas de powerplay, metagaming, godmodding.</li>
+          <li>Combat tour par tour équitable.</li>
+          <li>Mort RP seulement si accord ou décision MJ.</li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-2xl p-6 border-l-4 border-yellow-400">
+        <h2 class="text-2xl font-bold mb-3">📚 Progression</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Aspirant ➜ Genin : clonage + technique élémentaire.</li>
+          <li>Genin ➜ Chûnin : 3 techniques élémentaires + 1 Kekkei Genkai.</li>
+          <li>Chûnin ➜ Jûnin : toutes les techniques élémentaires + 2 Kekkei Genkai.</li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-2xl p-6 border-l-4 border-red-400">
+        <h2 class="text-2xl font-bold mb-3">⚠️ Rappel sur les guerres</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Toute attaque doit être validée par le Kage + staff.</li>
+          <li>Actions cohérentes avec l’histoire RP.</li>
+          <li>Respect des grades et règles de progression.</li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-2xl p-6 border-l-4 border-purple-400">
+        <h2 class="text-2xl font-bold mb-3">📖 Termes RP à connaître</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>RP : Roleplay</li>
+          <li>HRP : Hors RP</li>
+          <li>Powerplay : abus</li>
+          <li>Metagaming : infos HRP utilisées</li>
+          <li>Godmodding : invincibilité/contrôle abusif</li>
+        </ul>
+      </div>
+
     </div>
+
+    <p class="text-sm text-white/60 mt-8">Dernière mise à jour : 15 août 2025</p>
   </section>
 </main>
 
+<!-- FOOTER -->
 <footer class="mt-16">
   <div class="glass max-w-7xl mx-auto rounded-2xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between text-white/70">
     <p>© 2025 Shindo Life RP — Fan project. Non affilié à Naruto/Masashi Kishimoto.</p>
